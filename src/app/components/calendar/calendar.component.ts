@@ -5,10 +5,9 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss']
+  styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent implements OnInit {
-
   date = moment();
   daysArr;
   @Input() reminders: IReminder[] = [];
@@ -16,8 +15,7 @@ export class CalendarComponent implements OnInit {
 
   @Output() onChangeDaySelected = new EventEmitter<string>();
 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.daysArr = this.createCalendar(this.date);
@@ -50,7 +48,9 @@ export class CalendarComponent implements OnInit {
   remiderCheck(day) {
     if (!day) return false;
     let dayFormatted = day.format('MM/DD/YYYY');
-    const exist = this.reminders.find(reminder => reminder.day === dayFormatted);
+    const exist = this.reminders.find(
+      (reminder) => reminder.day === dayFormatted
+    );
     if (exist) {
       return true;
     } else {
@@ -69,13 +69,13 @@ export class CalendarComponent implements OnInit {
     if (!day) return false;
     let dayFormatted = day.format('MM/DD/YYYY');
     if (dayFormatted === this.daySelected) return true;
-
   }
 
   async selectedDate(day) {
-    if (!day) { return; }
+    if (!day) {
+      return;
+    }
     let dayFormatted = day.format('MM/DD/YYYY');
     this.onChangeDaySelected.emit(dayFormatted);
   }
-
 }

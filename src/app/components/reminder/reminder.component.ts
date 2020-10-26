@@ -4,20 +4,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-reminder',
   templateUrl: './reminder.component.html',
-  styleUrls: ['./reminder.component.scss']
+  styleUrls: ['./reminder.component.scss'],
 })
 export class ReminderComponent implements OnInit {
-
   @Output() addReminderEmitter = new EventEmitter<string>();
   @Output() deleteAllRemindersByDayEmitter = new EventEmitter<string>();
   @Output() editReminderEmitter = new EventEmitter<string>();
 
   @Input() items: IReminder[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   addReminder() {
     this.addReminderEmitter.emit();
@@ -30,5 +28,4 @@ export class ReminderComponent implements OnInit {
   editReminder(item) {
     this.editReminderEmitter.emit(item);
   }
-
 }
