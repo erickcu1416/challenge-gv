@@ -1,19 +1,9 @@
-<app-calendar [reminders]="reminders"
-              [daySelected]="daySelected"
-              (onChangeDaySelected)="selectedDate($event)" ></app-calendar>
-<br>
-
-<app-reminder [items]="items"
-              (addReminderEmitter)="open(content)"
-              (deleteAllRemindersByDayEmitter)="deleteAllRemindersByDay()"
-              (editReminderEmitter)="edit($event, content)"></app-reminder>
-
-<!-- <ng-template #content let-modal>
+<div>
   <div class="modal-header">
     <h4 *ngIf="!editable" class="modal-title" id="modal-basic-title">Agregar recordatorio</h4>
     <h4 *ngIf="editable" class="modal-title" id="modal-basic-title">Editar recordatorio</h4>
 
-    <button type="button" class="close" aria-label="Close" (click)="modal.close()">
+    <button type="button" class="close" aria-label="Close" (click)="onClose()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -44,10 +34,4 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="saveReminder()">Agregar</button>
   </div>
-</ng-template> -->
-
-<ng-template #content let-modal>
-  <app-modal (onCloseModal)="modal.close()" (onSaveReminder)="onSaveReminder($event)" [time]="time" [reminder]="reminder"></app-modal>
-</ng-template>
-
-<!-- <pre>{{ closeResult }}</pre> -->
+</div>
