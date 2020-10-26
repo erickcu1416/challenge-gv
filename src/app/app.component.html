@@ -26,34 +26,11 @@
   </div>
 </div>
 <br>
-<div class="d-flex justify-content-center">
 
-  <div class="card " style="width: 25rem;">
-    <div class="card-body">
-      <h5 class="card-title">Recordatorios</h5>
-      <a href="#" class="btn btn-primary" (click)="open(content)">Agregar</a>
-      <a href="#" class="btn btn-danger" (click)="deleteAllRemindersByDay()">Eliminar todos</a>
-      <br>
-      <br>
-
-      <div class="list-group">
-        <div *ngFor="let item of items">
-          <a [class]="'list-group-item list-group-item-action list-group-item-'+ item.color+ ' flex-column align-items-start'">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"> {{ item.title }} </h5>
-              <small> {{ item.time.hour + ':' + item.time.minute}}</small>
-            </div>
-            <!-- <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>-->
-            <small>{{item.city}}</small>
-            <br>
-            <a (click)="edit(item, content)" class="card-link">Editar</a>
-            </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
+<app-reminder [items]="items"
+              (addReminderEmitter)="open(content)"
+              (deleteAllRemindersByDayEmitter)="deleteAllRemindersByDay()"
+              (editReminderEmitter)="edit($event, content)"></app-reminder>
 
 <ng-template #content let-modal>
   <div class="modal-header">
