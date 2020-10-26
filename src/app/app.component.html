@@ -1,30 +1,6 @@
-<div class='flex-container flex-center'>
-  <div id='calendar-container' class='flex-container flex-column'>
-      <div class="height-20px"></div>
-      <div class='flex-container flex-center-horz'>
-          <div class='fa fa-chevron-left' (click)='previousMonth()'></div>
-          <div class='width-5'></div>
-          <div>{{date.format('MMMM ')}} {{date.format('YYYY ')}}</div>
-          <div class='width-5'></div>
-          <div class='fa fa-chevron-right' (click)='nextMonth()'></div>
-      </div>
-      <div class='height-20px'></div>
-      <div class='flex-container'>
-          <div class='calendar-days flex-container flex-center calendar-header'>Sun</div>
-          <div class='calendar-days flex-container flex-center calendar-header'>Mon</div>
-          <div class='calendar-days flex-container flex-center calendar-header'>Tue</div>
-          <div class='calendar-days flex-container flex-center calendar-header'>Wedn</div>
-          <div class='calendar-days flex-container flex-center calendar-header'>Thu</div>
-          <div class='calendar-days flex-container flex-center calendar-header'>Fri</div>
-          <div class='calendar-days flex-container flex-center calendar-header'>Sat</div>
-      </div>
-      <div class="flex-container flex-wrap">
-          <div *ngFor="let day of daysArr">
-              <div class='calendar-days flex-container flex-center ' (click)='selectedDate(day, content)' [ngClass]="{'inactive ': !day, 'today': todayCheck(day), 'reminder': remiderCheck(day), 'selected': isSelected(day)}">{{day?.date()}}</div>
-          </div>
-      </div>
-  </div>
-</div>
+<app-calendar [reminders]="reminders"
+              [daySelected]="daySelected"
+              (onChangeDaySelected)="selectedDate($event)" ></app-calendar>
 <br>
 
 <app-reminder [items]="items"
