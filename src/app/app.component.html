@@ -8,46 +8,6 @@
               (deleteAllRemindersByDayEmitter)="deleteAllRemindersByDay()"
               (editReminderEmitter)="edit($event, content)"></app-reminder>
 
-<!-- <ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 *ngIf="!editable" class="modal-title" id="modal-basic-title">Agregar recordatorio</h4>
-    <h4 *ngIf="editable" class="modal-title" id="modal-basic-title">Editar recordatorio</h4>
-
-    <button type="button" class="close" aria-label="Close" (click)="modal.close()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="title">Titulo</label>
-        <input type="text" [(ngModel)]="reminder.title" name="title" class="form-control" id="title" placeholder="Ir a comprar">
-      </div>
-      <div class="form-group">
-        <label for="time">Hora</label>
-        <ngb-timepicker [(ngModel)]="time" id="time" name="time"></ngb-timepicker>
-      </div>
-      <div class="form-group">
-        <label for="city">Ciudad</label>
-        <input type="text" [(ngModel)]="reminder.city" name="city" class="form-control" id="city" placeholder="Cancún">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">Color</label>
-        <select [class]="'form-control' + ' text-' + reminder.color" [(ngModel)]="reminder.color" name="color" class="form-control" id="exampleFormControlSelect1">
-          <option value="primary" class="text-primary">Azul</option>
-          <option value="warning" class="text-warning">Amarillo</option>
-          <option value="success" class="text-success">Verde</option>
-        </select>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="saveReminder()">Agregar</button>
-  </div>
-</ng-template> -->
-
 <ng-template #content let-modal>
   <app-modal (onCloseModal)="modal.close()" (onSaveReminder)="onSaveReminder($event)" [time]="time" [reminder]="reminder"></app-modal>
 </ng-template>
-
-<!-- <pre>{{ closeResult }}</pre> -->
